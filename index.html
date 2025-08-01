@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kiaa Holidays</title>
+  <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+  <style>
+    body { padding-top: 2rem; }
+    .package-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+    .widget { margin-top: 3rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="container-fluid">
+    <ul><li><strong>Kiaa Holidays</strong></li></ul>
+    <ul>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#suggestions">Travel Widget</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container" id="packages">
+    <section>
+      <hgroup>
+        <h2>Explore Our Travel Packages</h2>
+        <h3>Curated experiences across India and the world</h3>
+      </hgroup>
+      <p>Choose from an extensive collection of travel packages, handpicked by our experts.</p>
+
+      <!-- Future Google Sheet Integration -->
+      <!--
+      <script>
+        // Example structure - Replace SHEET_ID and RANGE with your actual values
+        // fetch("https://sheets.googleapis.com/v4/spreadsheets/SHEET_ID/values/RANGE?key=YOUR_API_KEY")
+        //   .then(response => response.json())
+        //   .then(data => console.log(data));
+      </script>
+      -->
+
+      <div class="grid">
+        <article class="package-card">
+          <img src="https://source.unsplash.com/featured/?tajmahal,india" alt="Taj Mahal">
+          <h3>Golden Triangle Tour</h3>
+          <p>Explore Delhi, Agra, and Jaipur in this 5-day cultural journey. Perfect for history lovers.</p>
+          <small>Price: ₹25,000 | Duration: 5 Days | Best Months: Oct–Mar</small>
+        </article>
+
+        <article class="package-card">
+          <img src="https://source.unsplash.com/featured/?paris,france" alt="Paris">
+          <h3>Romantic Europe</h3>
+          <p>Visit Paris, Venice, and Rome in a luxurious 10-day getaway for couples.</p>
+          <small>Price: ₹1,25,000 | Duration: 10 Days | Best Months: Apr–Jun, Sep</small>
+        </article>
+
+        <article class="package-card">
+          <img src="https://source.unsplash.com/featured/?kerala,backwaters" alt="Kerala">
+          <h3>Backwaters of Kerala</h3>
+          <p>A serene 6-day experience through Alleppey, Kumarakom and Kochi. Houseboats & nature.</p>
+          <small>Price: ₹30,000 | Duration: 6 Days | Best Months: Nov–Feb</small>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <section class="widget" id="suggestions">
+    <div class="container">
+      <article>
+        <hgroup>
+          <h2>Best Places by Month</h2>
+          <h3>Find the perfect destination based on when and where you want to go</h3>
+        </hgroup>
+        <form class="grid" onsubmit="event.preventDefault(); suggestPlace()">
+          <select id="month" required>
+            <option value="" disabled selected>Select Month</option>
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+          </select>
+          <select id="region" required>
+            <option value="" disabled selected>India / Outside India</option>
+            <option value="India">India</option>
+            <option value="World">Outside India</option>
+          </select>
+          <button type="submit">Suggest Destination</button>
+        </form>
+        <p id="suggestion-output"></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <article>
+        <hgroup>
+          <h2>Contact Us</h2>
+          <h3>For bookings and inquiries, reach out to us</h3>
+        </hgroup>
+        <form class="grid">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Your email" required />
+          <button type="submit" onclick="event.preventDefault()">Submit</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <footer class="container">
+    <small><a href="#">Privacy Policy</a> • <a href="#">Terms & Conditions</a></small>
+  </footer>
+
+  <script>
+    function suggestPlace() {
+      const month = document.getElementById("month").value;
+      const region = document.getElementById("region").value;
+
+      const suggestions = {
+        "January": { India: "Rajasthan, Auli", World: "Dubai, Thailand" },
+        "May": { India: "Ladakh, Himachal Pradesh", World: "Switzerland, Canada" },
+        "December": { India: "Goa, Kerala", World: "Australia, South Africa" }
+      };
+
+      const result = suggestions[month]?.[region] || "No suggestions available for this selection.";
+      document.getElementById("suggestion-output").innerText = `Recommended destinations: ${result}`;
+    }
+  </script>
+
+</body>
+</html>
