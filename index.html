@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +16,8 @@
     .widget { margin-top: 3rem; }
   </style>
 </head>
-<body>
 
+<body>
   <nav class="container-fluid">
     <ul><li><strong>Kiaa Holidays</strong></li></ul>
     <ul>
@@ -46,21 +47,21 @@
 
       <div class="grid">
         <article class="package-card">
-          <img src="https://source.unsplash.com/featured/?tajmahal,india" alt="Taj Mahal">
+          <img src="https://images.unsplash.com/photo-1585487000160-5751a58ef0dc?auto=format&fit=crop&w=800&q=80" alt="Taj Mahal">
           <h3>Golden Triangle Tour</h3>
           <p>Explore Delhi, Agra, and Jaipur in this 5-day cultural journey. Perfect for history lovers.</p>
           <small>Price: ₹25,000 | Duration: 5 Days | Best Months: Oct–Mar</small>
         </article>
 
         <article class="package-card">
-          <img src="https://source.unsplash.com/featured/?paris,france" alt="Paris">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Paris">
           <h3>Romantic Europe</h3>
           <p>Visit Paris, Venice, and Rome in a luxurious 10-day getaway for couples.</p>
           <small>Price: ₹1,25,000 | Duration: 10 Days | Best Months: Apr–Jun, Sep</small>
         </article>
 
         <article class="package-card">
-          <img src="https://source.unsplash.com/featured/?kerala,backwaters" alt="Kerala">
+          <img src="https://images.unsplash.com/photo-1549887534-4b1c4f341fe7?auto=format&fit=crop&w=800&q=80" alt="Kerala">
           <h3>Backwaters of Kerala</h3>
           <p>A serene 6-day experience through Alleppey, Kumarakom and Kochi. Houseboats & nature.</p>
           <small>Price: ₹30,000 | Duration: 6 Days | Best Months: Nov–Feb</small>
@@ -130,9 +131,54 @@
       const region = document.getElementById("region").value;
 
       const suggestions = {
-        "January": { India: "Rajasthan, Auli", World: "Dubai, Thailand" },
-        "May": { India: "Ladakh, Himachal Pradesh", World: "Switzerland, Canada" },
-        "December": { India: "Goa, Kerala", World: "Australia, South Africa" }
+        January: {
+          India: "Rajasthan, Auli, Rann of Kutch",
+          World: "Dubai, Maldives, Vietnam"
+        },
+        February: {
+          India: "Goa, Khajuraho, Udaipur",
+          World: "Bali, New Zealand, Cambodia"
+        },
+        March: {
+          India: "Varanasi, Hampi, Coorg",
+          World: "Japan (cherry blossoms), Spain, Morocco"
+        },
+        April: {
+          India: "Darjeeling, Manali, Mahabaleshwar",
+          World: "Netherlands, Italy, South Korea"
+        },
+        May: {
+          India: "Ladakh, Shimla, Gangtok",
+          World: "Switzerland, Canada, Norway"
+        },
+        June: {
+          India: "Spiti Valley, Sikkim, Kashmir",
+          World: "Iceland, Peru, Greece"
+        },
+        July: {
+          India: "Munnar, Chikmagalur, Lonavala",
+          World: "Indonesia, Kenya, Brazil"
+        },
+        August: {
+          India: "Wayanad, Valley of Flowers, Mount Abu",
+          World: "Scotland, Fiji, Tanzania"
+        },
+        September: {
+          India: "Ziro (Arunachal), Ooty, Orchha",
+          World: "China, South Africa, Croatia"
+        },
+        October: {
+          India: "Jodhpur, Rishikesh, Sundarbans",
+          World: "Germany, USA (fall foliage), Australia"
+        },
+        November: {
+          India: "Pushkar, Varanasi (Dev Deepawali), Andaman",
+          World: "Thailand, Egypt, Argentina"
+        },
+        December: {
+          India: "Goa, Kerala, Manali",
+          World: "Austria, South Africa, Australia"
+        }
       };
 
       const result = suggestions[month]?.[region] || "No suggestions available for this selection.";
